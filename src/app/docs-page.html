@@ -1,0 +1,148 @@
+<div class="docs-page">
+  <header class="docs-header">
+    <lit-button label="← Back" variant="ghost" (lit-click)="goBack()" />
+    <h1>Lit Elements Documentation</h1>
+  </header>
+
+  <div class="docs-content">
+    <section class="component-doc">
+      <h2>lit-button</h2>
+      <p class="description">A customizable button component with primary and ghost variants.</p>
+      
+      <h3>Properties</h3>
+      <ul>
+        <li><code>label</code> (string): The text displayed on the button. Default: "Button"</li>
+        <li><code>variant</code> ('primary' | 'ghost'): The visual style variant. Default: "primary"</li>
+        <li><code>disabled</code> (boolean): Whether the button is disabled. Default: false</li>
+      </ul>
+
+      <h3>Events</h3>
+      <ul>
+        <li><code>lit-click</code>: Emitted when the button is clicked (only if not disabled)</li>
+      </ul>
+
+      <h3>Usage Example</h3>
+      <pre><code>&lt;lit-button 
+  label="Add" 
+  variant="primary"
+  (lit-click)="handleClick()"
+/&gt;</code></pre>
+
+      <h3>Behavior</h3>
+      <ul>
+        <li>Primary variant: Displays with default button styling (neumorphism dark theme)</li>
+        <li>Ghost variant: Displays with transparent/subtle styling</li>
+        <li>When disabled, the button cannot be clicked and appears visually disabled</li>
+        <li>Click events bubble and are composed for use across shadow DOM</li>
+      </ul>
+    </section>
+
+    <section class="component-doc">
+      <h2>lit-checkbox</h2>
+      <p class="description">A checkbox component with label support and checked state management.</p>
+      
+      <h3>Properties</h3>
+      <ul>
+        <li><code>label</code> (string): The text displayed next to the checkbox</li>
+        <li><code>checked</code> (boolean): Whether the checkbox is checked. Default: false</li>
+      </ul>
+
+      <h3>Events</h3>
+      <ul>
+        <li><code>checked-change</code>: Emitted when the checkbox state changes. Detail contains the new checked state (boolean)</li>
+      </ul>
+
+      <h3>Usage Example</h3>
+      <pre><code>&lt;lit-checkbox
+  [attr.label]="task.text"
+  [attr.checked]="task.done ? '' : null"
+  (checked-change)="onToggle($event)"
+/&gt;</code></pre>
+
+      <h3>Behavior</h3>
+      <ul>
+        <li>Clicking the checkbox toggles its checked state</li>
+        <li>The label text updates styling when checked (strikethrough effect)</li>
+        <li>Events bubble and are composed for cross-shadow DOM communication</li>
+        <li>Uses native HTML checkbox input for accessibility</li>
+      </ul>
+    </section>
+
+    <section class="component-doc">
+      <h2>lit-textbox</h2>
+      <p class="description">A text input component with placeholder support and keyboard event handling.</p>
+      
+      <h3>Properties</h3>
+      <ul>
+        <li><code>value</code> (string): The current text value. Default: ""</li>
+        <li><code>placeholder</code> (string): Placeholder text when input is empty. Default: "Enter todo"</li>
+      </ul>
+
+      <h3>Events</h3>
+      <ul>
+        <li><code>value-change</code>: Emitted when the input value changes. Detail contains the new value (string)</li>
+        <li><code>enter-press</code>: Emitted when the Enter key is pressed</li>
+      </ul>
+
+      <h3>Usage Example</h3>
+      <pre><code>&lt;lit-textbox
+  [attr.value]="inputValue()"
+  placeholder="Add a new task"
+  (value-change)="onInputChange($event)"
+  (enter-press)="submitForm()"
+/&gt;</code></pre>
+
+      <h3>Behavior</h3>
+      <ul>
+        <li>Emits value-change event on every input change</li>
+        <li>Pressing Enter triggers the enter-press event (useful for form submission)</li>
+        <li>Events bubble and are composed for framework integration</li>
+        <li>Uses native HTML text input for accessibility</li>
+      </ul>
+    </section>
+
+    <section class="component-doc">
+      <h2>lit-navbar</h2>
+      <p class="description">A navigation bar component with tab switching functionality.</p>
+      
+      <h3>Properties</h3>
+      <ul>
+        <li><code>title</code> (string): The brand/title text displayed on the navbar. Default: "Todo Manager"</li>
+        <li><code>active</code> (string): The currently active tab ('personal' or 'professional'). Default: "personal"</li>
+      </ul>
+
+      <h3>Events</h3>
+      <ul>
+        <li><code>view-change</code>: Emitted when a tab is clicked. Detail contains the selected view ('personal' | 'professional')</li>
+      </ul>
+
+      <h3>Usage Example</h3>
+      <pre><code>&lt;lit-navbar
+  title="Todo Workspace"
+  [attr.active]="currentView()"
+  (view-change)="onViewChange($event)"
+/&gt;</code></pre>
+
+      <h3>Behavior</h3>
+      <ul>
+        <li>Displays two tabs: "Personal" and "Professional"</li>
+        <li>Active tab is visually highlighted based on the active property</li>
+        <li>Clicking a tab emits view-change event with the selected view</li>
+        <li>Events bubble and are composed for routing integration</li>
+        <li>Styled with neumorphism dark theme for visual consistency</li>
+      </ul>
+    </section>
+
+    <section class="design-system-info">
+      <h2>Design System</h2>
+      <p class="description">All Lit elements use a consistent design system with:</p>
+      <ul>
+        <li><strong>Dark Neumorphism Theme:</strong> Soft shadows and subtle depth effects</li>
+        <li><strong>Color Palette:</strong> Carefully crafted dark colors with high contrast for accessibility</li>
+        <li><strong>Spacing System:</strong> Consistent spacing scale (xs to huge) for visual rhythm</li>
+        <li><strong>Typography:</strong> Hierarchical font sizes for clear content structure</li>
+        <li><strong>Transitions:</strong> Smooth animations for interactive elements</li>
+      </ul>
+    </section>
+  </div>
+</div>

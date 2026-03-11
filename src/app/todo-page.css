@@ -1,0 +1,219 @@
+:host {
+  display: block;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--spacing-huge) var(--spacing-xxl);
+  display: grid;
+  gap: var(--spacing-xl);
+  position: relative;
+}
+
+.info-button {
+  position: fixed;
+  inset-block-start: var(--spacing-xl);
+  inset-inline-end: var(--spacing-xl);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-surface-default);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-outer-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  z-index: 1000;
+}
+
+.info-button:hover {
+  box-shadow: var(--shadow-outer-lg);
+  transform: translateY(-1px);
+}
+
+.info-button:active {
+  box-shadow: var(--shadow-inset-md);
+  transform: translateY(0);
+}
+
+.info-icon {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
+.card {
+  border-radius: var(--radius-full);
+  background: var(--color-surface-raised);
+  border: none;
+  box-shadow: var(--shadow-outer-lg);
+  padding: var(--spacing-xxxl);
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+header h1 {
+  margin: 0;
+  font-size: var(--font-size-huge);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+header p {
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+}
+
+.entry-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+li {
+  padding: var(--spacing-lg) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-pressed);
+  box-shadow: var(--shadow-outer-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.delete-button {
+  margin-inline-start: auto;
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  opacity: 0.7;
+}
+
+.delete-button:hover {
+  opacity: 1;
+  background: rgba(239, 68, 68, 0.1);
+  transform: scale(1.1);
+}
+
+.delete-button:active {
+  transform: scale(0.95);
+}
+
+.bin-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 720px) {
+  .entry-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.edit-button {
+  border: none;
+  background: transparent;
+  color: #3b82f6;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  opacity: 0.7;
+}
+
+.edit-button:hover {
+  opacity: 1;
+  background: rgba(59, 130, 246, 0.1);
+  transform: scale(1.1);
+}
+
+.edit-button:active {
+  transform: scale(0.95);
+}
+
+.pencil-icon {
+  width: 20px;
+  height: 20px;
+}
+
+li.editing {
+  gap: var(--spacing-sm);
+  padding-block: var(--spacing-md);
+}
+
+.edit-textbox {
+  flex: 1;
+}
+
+.edit-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-inline-start: auto;
+}
+
+.save-btn,
+.cancel-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.save-btn {
+  color: #10b981;
+}
+
+.save-btn:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.save-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.save-btn:disabled:hover {
+  background: transparent;
+}
+
+.cancel-btn {
+  color: #ef4444;
+}
+
+.cancel-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+}

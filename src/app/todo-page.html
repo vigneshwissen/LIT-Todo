@@ -1,0 +1,72 @@
+<div class="page">
+  <lit-navbar
+    title="Todo Workspace"
+    [attr.active]="category()"
+    (view-change)="onViewChange($event)"
+  />
+
+  <button class="info-button" (click)="navigateToDocs()" title="View Documentation">
+    <span class="info-icon">i</span>
+  </button>
+
+  <section class="card">
+    <header>
+      <h1>{{ title() }}</h1>
+    </header>
+
+    <div class="entry-row">
+      <lit-textbox
+        [attr.value]="pendingInput()"
+        placeholder="Add a new task"
+        (value-change)="onInputChange($event)"
+        (enter-press)="addTodo()"
+      />
+      <lit-button label="Add" [attr.disabled]="isAddDisabled() ? '' : null" (lit-click)="addTodo()" />
+      <lit-button
+        label="Clear completed"
+        variant="ghost"
+        (lit-click)="clearCompleted()"
+      />
+    </div>
+
+    <ul>
+      @for (todo of todos(); track todo.id) {
+        <li [class.editing]="editingId() === todo.id">
+          @if (editingId() === todo.id) {
+            <lit-textbox
+              class="edit-textbox"
+              [attr.value]="editingText()"
+              (value-change)="onEditTextChange($event)"
+              (enter-press)="saveEdit(todo.id)"
+            />
+          } @else {
+            <lit-checkbox
+              [attr.label]="todo.text"
+              [attr.checked]="todo.done ? '' : null"
+              (checked-change)="onToggle(todo.id, $event)"
+            />
+          }
+          @if (editingId() !== todo.id) {
+            <button class="delete-button" (click)="deleteTodo(todo.id)" title="Delete todo">
+              <svg class="bin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14z"/>
+                <path d="M10 11v6M14 11v6"/>
+              </svg>
+            </button>
+            <button class="edit-button" (click)="startEdit(todo.id, todo.text)" title="Edit todo">
+              <svg class="pencil-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+            </button>
+          } @else {
+            <div class="edit-actions">
+              <button class="save-btn" [disabled]="isEditSaveDisabled()" (click)="saveEdit(todo.id)" title="Save">✓</button>
+              <button class="cancel-btn" (click)="cancelEdit()" title="Cancel">✕</button>
+            </div>
+          }
+        </li>
+      }
+    </ul>
+  </section>
+</div>

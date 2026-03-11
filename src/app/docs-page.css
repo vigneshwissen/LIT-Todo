@@ -1,0 +1,103 @@
+.docs-page {
+  min-height: 100vh;
+  background: var(--color-background-primary);
+  padding: var(--spacing-xl);
+}
+
+.docs-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxxl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.docs-header h1 {
+  margin: 0;
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.docs-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxxl);
+}
+
+.component-doc,
+.design-system-info {
+  background: var(--color-surface-default);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl);
+  box-shadow: var(--shadow-outer-md);
+}
+
+.component-doc h2,
+.design-system-info h2 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+}
+
+.component-doc h3 {
+  margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.description {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.component-doc ul,
+.design-system-info ul {
+  margin: var(--spacing-md) 0;
+  padding-inline-start: var(--spacing-xl);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.component-doc li,
+.design-system-info li {
+  margin-bottom: var(--spacing-sm);
+}
+
+code {
+  background: var(--color-background-primary);
+  color: var(--color-accent);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+}
+
+pre {
+  background: var(--color-background-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+  box-shadow: var(--shadow-inset-md);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
