@@ -9,24 +9,6 @@ A modern Todo app built with **Angular 21** and reusable **Lit Web Components**.
 
 It supports personal/professional todo views, inline editing, delete confirmation, and persistent storage with `localStorage`.
 
-## Preview
-
-### Screenshot
-
-Add your latest UI screenshot at `docs/assets/todo-workspace.png`, then use:
-
-```markdown
-![Todo Workspace Screenshot](docs/assets/todo-workspace.png)
-```
-
-### Demo GIF
-
-Add a short walkthrough GIF at `docs/assets/todo-workspace-demo.gif`, then use:
-
-```markdown
-![Todo Workspace Demo](docs/assets/todo-workspace-demo.gif)
-```
-
 ## Features
 
 - Separate todo lists for **Personal** and **Professional** categories
